@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Travello | Registration</title>
+		<style>
+			.test{
+					display: block;
+  					margin-left: auto;
+  					margin-right: auto;
+					width:30%;
+
+					}
+		</style>
+	</head>
+			<body style="background-color:lightblue;">
+			<h1> <center><u>Registration Form</u></center></h1>
+					<div class="test">
+						<form action="{% url 'credentials:register' %}" method="post">
+							{% csrf_token %}
+							<table style="background-color:pink;border-style:inset;border-radius:20px;border-spacing:20px;">
+								<tr>
+									<td>First Name</td>
+									<td><input type="text" name="first_name"></td>
+								</tr>
+								<tr>
+									<td>Last Name</td>
+									<td><input type="text" name="last_name"></td>
+								</tr>
+                                <tr>
+									<td>Email</td>
+									<td><input type="email" name="email"></td>
+								</tr>
+                                <tr>
+									<td>User Name</td>
+									<td><input type="text" name="username"></td>
+								</tr>
+								<tr>
+									<td>Password</td>
+									<td><input type="password" name="password"></td>
+								</tr>
+                                <tr>
+									<td>Confirm Password</td>
+									<td><input type="password" name="password1"></td>
+								</tr>
+                                <tr>
+									<td><input type="reset" name="reset"></td>
+									<td><input type="submit" name="submit"></td>
+								</tr>
+
+							</table>
+						</form>
+					</div>
+					<div class="row" style="text-align: center;color:red;">
+						{% for i in messages %}
+						<h1 class="text-center">{{i}}</h1>
+						<h1>Registration Failed !!! Pls Try Again</h1>
+						{% endfor %}
+					</div>
+			</body>
+</html>
